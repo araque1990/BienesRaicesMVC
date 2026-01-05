@@ -1,0 +1,36 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.header {
+    background-color: v.$grisOscuro;
+
+    &.inicio {
+        background-position: center center;
+        background-size: cover;
+
+        // El navegador elegirá la que soporte automáticamente
+        background-image: url('../img/header.jpg'); // Fallback para navegadores viejos
+        background-image: -webkit-image-set(url('../img/header.webp') 1x,
+                url('../img/header.jpg') 1x);
+        background-image: image-set(url('../img/header.webp') 1x,
+                url('../img/header.jpg') 1x);
+
+        @include m.tablet {
+            min-height: 70rem;
+        }
+    }
+}
+
+.contenido-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1 {
+        text-align: left;
+        color: v.$blanco;
+        font-weight: v.$bold;
+        line-height: 2;
+        max-width: 60rem;
+    }
+}

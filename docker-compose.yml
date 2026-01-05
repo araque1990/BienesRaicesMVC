@@ -1,0 +1,66 @@
+services:
+  # Servidor PHP 8.4 (Configuración Personalizada)
+  php:
+    build:
+      context: .
+      args:
+        USER_NAME: developer
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
+    container_name: br_php_84
+    volumes:
+      - .:/var/www/html
+    networks:
+      - br_network
+    env_file:
+      - .env
+
+  # Servidor Nginx (Proxy inverso)
+  nginx:
+    image: nginx:alpine
+    container_name: br_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    networks:
+      - br_network
+    env_file:
+      - .env
+
+  # Base de Datos MariaDB 11.4
+  db:
+    image: mariadb:11.4
+    container_name: br_db
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - br_db_data:/var/lib/mysql
+      - ./docker/scripts:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
+    networks:
+      - br_network
+
+  # Mailpit: Servidor de correos local para desarrollo
+  mailpit:
+    image: axllent/mailpit
+    container_name: br_mailpit
+    ports:
+      - "8025:8025" # Interfaz Web (Dashboard)
+      - "1025:1025" # Puerto SMTP
+    networks:
+      - br_network
+
+networks:
+  br_network:
+    driver: bridge
+
+volumes:
+  br_db_data:

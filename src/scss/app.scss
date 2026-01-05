@@ -1,0 +1,23 @@
+/** Reset y Estilos Globales  **/
+@use 'base/normalize';
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/globales';
+@use 'base/utilidades';
+@use 'base/botones';
+@use 'base/darkMode';
+
+/** UI / Layout **/
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/navegacion';
+@use 'layout/iconos';
+@use 'layout/anuncios';
+@use 'layout/contactar';
+@use 'layout/inferior';
+@use 'layout/testimoniales';
+@use 'layout/formularios';
+
+/** Páginas Internas **/
+@use 'internas/nosotros';
+@use 'internas/admin';

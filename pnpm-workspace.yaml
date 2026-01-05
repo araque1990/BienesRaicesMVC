@@ -1,0 +1,12 @@
+ignoredBuiltDependencies:
+  - cypress
+  - sharp
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - core-js
+  - cwebp-bin
+  - es5-ext
+  - gifsicle
+  - mozjpeg
+  - optipng-bin

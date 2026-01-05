@@ -1,0 +1,28 @@
+# Configuración personal
+.env
+.env.local
+
+# Dependencias
+vendor/
+node_modules/
+.pnpm-store/
+
+# Archivos del sistema / IDE
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker / DB
+docker/db_data/
+*.sql
+
+# Assets compilados y caché
+.phpstan.cache/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS metadata
+Thumbs.db

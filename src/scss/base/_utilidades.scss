@@ -1,0 +1,19 @@
+@use 'variables' as v;
+
+.seccion {
+    margin-top: v.$separacion * 0.5;
+    margin-bottom: v.$separacion * 0.5;
+}
+
+.contenido-centrado {
+    max-width: 80rem;
+}
+
+.alinear-derecha {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.w-100 {
+    width: 100%;
+}

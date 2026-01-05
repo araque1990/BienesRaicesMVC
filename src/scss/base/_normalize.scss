@@ -1,0 +1,69 @@
+/* Modern CSS Reset 2025 - Optimizado para Bienes Raíces MVC */
+
+/* 1. Box sizing global: Fundamental para que el padding no rompa tus layouts */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Reset de márgenes y tipografía */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* 3. Configuración del documento */
+html {
+  /* Altura completa y suavizado de scroll */
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  /* Estándar de accesibilidad actual (mejor que 1.15) */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. Imágenes y Media: Responsivas por defecto */
+img,
+picture,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+  /* Elimina el espacio extra debajo de las imágenes */
+}
+
+/* 5. Formularios: Heredar fuentes (esto ahorra mucho código en el Admin) */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 6. Eliminar animaciones para personas con sensibilidad (Accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
