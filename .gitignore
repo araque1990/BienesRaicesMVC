@@ -16,7 +16,6 @@ node_modules/
 
 # Docker / DB
 docker/db_data/
-*.sql
 
 # Assets compilados y caché
 .phpstan.cache/
