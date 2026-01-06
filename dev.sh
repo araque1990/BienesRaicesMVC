@@ -28,6 +28,12 @@ echo "🗄️  Esperando a la base de datos para importar esquema..."
 sleep 10
 docker exec -i bienesraices_db mysql -u root -p$(grep DB_PASS .env | cut -d'=' -f2) bienesraices_crud < scripts/bienesraices_MVC.sql
 
+# 5. RECLAMACIÓN DE PROPIEDAD TOTAL 
+# Este comando asegura que CUALQUIER archivo creado por Docker (vendor, node_modules, logs, etc.)
+# pase a ser propiedad de tu usuario actual de forma recursiva.
+echo "🔐 Ajustando permisos de usuario en todos los archivos del proyecto..."
+sudo chown -R $(id -u):$(id -g) .
+
 echo "✅ Entorno listo en http://localhost"
 echo "📧 Mailpit (Email testing) en http://localhost:8025"
 
